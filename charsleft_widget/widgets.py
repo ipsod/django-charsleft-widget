@@ -28,8 +28,9 @@ class CharsLeftInput(forms.TextInput, MediaMixin):
     def render(self, name, value, attrs=None):
         if value is None:
             value = ''
-        extra_attrs = {'type': self.input_type, 'name': name,
-                       'maxlength': self.attrs.get('maxlength')}
+        extra_attrs = {'type': self.input_type, 'name': name}
+        extra_attrs.update(self.attrs)
+        
         final_attrs = self.build_attrs(attrs, extra_attrs=extra_attrs)
         if value != '':
             final_attrs['value'] = force_str(self._format_value(value))
