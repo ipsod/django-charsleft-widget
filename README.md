@@ -26,12 +26,12 @@ be pulled in automatically from your model field.**
 
 ```python
 from django import forms
-from charsleft_widget.widgets import CharsLeftInput
+from charsleft_widget.widgets import CharsLeftArea
 
 from .models import Song
 
 class SongForm(forms.ModelForm):
-  name = forms.CharField(widget=CharsLeftInput(attrs={'maxlength': 100}))
+  name = forms.CharField(widget=CharsLeftArea(attrs={'maxlength': 100}))
 
   class Meta:
     model = Song
